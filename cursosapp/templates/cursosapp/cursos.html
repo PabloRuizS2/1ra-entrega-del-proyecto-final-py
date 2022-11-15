@@ -1,0 +1,60 @@
+{% extends 'cursosapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Cursos
+{% endblock %} 
+
+{% block contenidoPagina %} 
+
+        <section class="bg-light py-5">
+            <div class="container px-5" >
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div style="text-align:right">
+                            <a href="/cursosapp/buscar_curso/"><button>Buscar curso</button></a>
+                       </div>
+                        <h5 style="color: rgb(4, 0, 255)" >Los cursos son:</h5>
+                       
+                            <ul class="list-group list-group">
+                            
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                
+                                    
+                                    <b>Curso</b> <!-- Encabezados-->
+                                    <b>Nombre del profesor</b>  
+                                    <b>Numero de comision</b>
+                                    <b>Dias de cursada</b>
+                                    
+                                </li>
+
+                                {% for curso in cursos %}
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    
+                                     <span >{{curso.nombrecurso}}</span>
+                                     <span >{{curso.profesor}}</span>
+                                     <span >{{curso.comision}}</span>
+                                     <span >{{curso.diascurso}}</span>
+                                
+                                </li>
+                               
+                            {% endfor %}
+                        
+                            </ul>
+                            <br>
+                                <div style="text-align:right">
+                                     <a href="/cursosapp/crear_curso/"><button>Ingresar nuevo curso</button></a>
+                                </div>
+                               
+                    </div>
+                </div>
+            </div>
+                
+
+        </section>
+        {% endblock %} 
+       
+       
+
+
+

@@ -1,0 +1,47 @@
+{% extends 'cursosapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Buscar Curso
+{% endblock %}
+
+{% block contenidoPagina %}
+<div class="row gx-5 justify-content-center">
+    <div class="col-lg-6">
+        <p><h3>Buscar curso:</h3>
+             <form action="" method="post">
+             {% csrf_token %}
+
+                <input type="text" name="curso" id="" min="0">
+
+                 <input type="submit" value="Buscar">
+            </form>
+        </p>
+
+    
+        <h5 style="color: rgb(38, 0, 255) ">Resultados: </h5>
+        <ul class="list-group list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                
+                                    
+              <b>Curso</b> <!-- Encabezados-->
+              <b>Nombre del profesor</b>  
+              <b>Numero de comision</b>
+              <b>Dias de cursada</b>
+    
+            </li>
+
+            {% for resultado in cursos %}
+             <li class="list-group-item d-flex justify-content-between align-items-start">
+                 <p>{{resultado.nombrecurso}} </p>
+                 <p> {{resultado.profesor}} </p>
+                 <p>  {{resultado.comision}}</p> 
+                 <p>  {{resultado.diascurso}}</p>
+             </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'cursosapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Profesores
+{% endblock %} 
+
+{% block contenidoPagina %} 
+
+<section class="bg-light py-5">
+    <div class="container px-5" >
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div style="text-align:right">
+                    <a href="/cursosapp/buscar_profesor/"><button>Buscar profesor</button></a>
+               </div>
+                <h5 style="color: rgb(25, 0, 252)" >Los Profesores son:</h5>
+               
+                    <ul class="list-group list-group">
+                    
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                        
+                            
+                
+                            <b>Nombre del profesor</b>   <!-- Encabezados-->
+                            <b>Nivel</b>
+                            <b>Edad</b>
+                            
+                        </li>
+
+        
+                            {% for profesor in profesores %}
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+
+
+                            <span>{{profesor.nombreprofesor}}</span>
+                              <span>{{profesor.get_nivel_display}}</span>
+                              <span>{{profesor.edad}}</span>
+                            
+                        
+                        </li>
+                       
+                    {% endfor %}
+                
+                    </ul>
+                    <br>
+                        <div style="text-align:right">
+                             <a href="/cursosapp/crear_profesor/"><button>Ingresar nuevo profesor</button></a>
+                        </div>
+                       
+            </div>
+        </div>
+    </div>
+        
+
+</section>
+{% endblock %} 
+
+
+
+
+
+
+

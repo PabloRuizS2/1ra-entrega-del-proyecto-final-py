@@ -1,0 +1,31 @@
+{% extends 'cursosapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Ingresar Curso
+{% endblock %} 
+
+{% block contenidoPagina %} 
+
+<section class="bg-light py-5">
+    <div class="container px-5" >
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <h2 style="color: rgb(0, 17, 255)" >Ingresa un nuevo curso:</h2>
+                    <form action="" method="post">
+                     {% csrf_token %}
+
+                     <p>Curso: <input type="text" name="nombrecurso" id=""></p>
+                     <p>Profesor: <input type="text" name="profesor" id=""></p>
+                     <p>Comision: <input type="number" name="comision" id=""></p>
+                     <p>Dias de cursada: <input type="text" name="diascurso" id=""></p>
+
+                     <input type="submit" value="Ingresar Curso">
+                    </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %} 
+

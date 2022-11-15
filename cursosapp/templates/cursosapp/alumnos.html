@@ -1,0 +1,87 @@
+{% extends 'cursosapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Alumnos
+{% endblock %} 
+
+{% block contenidoPagina %} 
+
+<section class="bg-light py-5">
+    <div class="container px-5" >
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div style="text-align:right">
+                    <a href="/cursosapp/buscar_alumno/"><button>Buscar alumno</button></a>
+               </div>
+                <h5 style="color: rgb(25, 0, 255)">Los Alumnos son:</h5>
+               
+                    <ul class="list-group list-group">
+                    
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                        
+                            
+                
+                            <b>Nombre del alumno</b>   <!-- Encabezados-->
+                            <b>Edad</b>
+                            <b>Cursos realizados</b>
+                            <b>Telefono</b>
+
+                        </li>
+
+        
+                            {% for alumno in alumnos %}
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+
+
+                            <span>{{alumno.nombrealumno}}</span>
+                            <span>{{alumno.edad}}</span>
+                            <span>{{alumno.cursosrealizados}}</span>
+                            <span>{{alumno.telefono}}</span>
+                        
+                        </li>
+                       
+                    {% endfor %}
+                
+                    </ul>
+                    <br>
+                        <div style="text-align:right">
+                             <a href="/cursosapp/crear_alumno/"><button>Ingresar nuevo alumno</button></a>
+                        </div>
+                       
+            </div>
+        </div>
+    </div>
+        
+
+</section>
+{% endblock %} 
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+</head>
+<body>
+    <h1>Alumnos:</h1>
+    <ul>
+        {% for alumno in alumnos %}
+        <li>{{alumno.nombrealumno}}</li>
+        <li>{{alumno.edad}}</li>
+        <li>{{alumno.cursosrealizados}}</li>
+        <li>{{alumno.telefono}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
